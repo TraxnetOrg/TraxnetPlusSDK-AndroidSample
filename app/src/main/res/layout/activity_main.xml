@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btRewardedVideo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/rewarded_video" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btInterstitial"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/interstitial" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btNativeBanner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/native_banner" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btStandardBanner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/standard_banner" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>
