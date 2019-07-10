@@ -3,7 +3,12 @@
 Adding TraxnetPlus to your Android Studio Project
 ----
 
+> From version 1.1.0 to next, TraxnetPlus Supports from AdMob NativeAds, and this version is not compatible with previous version in NativeAds. If you used from NativeAds, follow the training.
+
+> From version 1.1.0 to next, the other ad-networks that you are interested in added, should be added according to the described method, and these adNetworks will not automatically be added.
+
 ### Import TraxnetPlus SDK
+First add the TraxnetPlus library to the project in the following way, then add any adNetwork that supports with TraxnetPlus and would you like, to the project According to the description. Finally, make sure the adNetwork works ok with testing methods.
 
 You can import the TraxnetPlus SDK with a Gradle dependency that points to Traxnet's Maven repository. To use this repository, you need to reference it in the project-level `build.gradle` file.
 
@@ -25,7 +30,7 @@ Secondly, add the following dependency to the dependencies section of your app-l
 
 ```gradle
 dependencies {
-    implementation 'ee.traxnet.plus:traxnet-plus-sdk-android:1.0.0'
+    implementation 'ee.traxnet.plus:traxnet-plus-sdk-android:1.1.0'
 }
 ```
 
@@ -35,6 +40,29 @@ Also you must add the following compile options if they do not exist in the andr
 compileOptions {
   sourceCompatibility JavaVersion.VERSION_1_8
   targetCompatibility JavaVersion.VERSION_1_8
+}
+```
+### Add other adNetworks
+Add these items in the build.gradle file and dependencies section. For get more information on each adNetwork, you can talk to our team at the media team.
+
+```gradle
+dependencies {
+    .......
+    //for adMob
+    implementation 'com.google.android.gms:play-services-ads:17.2.1'
+    implementation 'com.google.android.gms:play-services-basement:16.2.0'
+    implementation 'com.google.android.gms:play-services-ads-identifier:16.0.0'
+    implementation 'com.google.android.gms:play-services-location:16.0.0'
+
+    //for unityAds
+    implementation 'com.unity3d.ads:unity-ads:3.0.0'
+
+    //for chartboost
+    implementation 'ee.traxnet.sdk:chartboost-sdk-android:7.3.1'
+
+    //for facebook
+    implementation 'com.facebook.android:audience-network-sdk:5.3.0'
+    .....
 }
 ```
 
@@ -170,7 +198,7 @@ Create an template layout for showing native ad. This layout must contain compon
 
 You can also use the sample template which is included in the SDK with the following id:
 
-`traxnet_content_banner_ad_template`
+`native_banner`
 
 Create an `AdHolder` for showing native banner by using `TraxnetPlus.createAdHolder` method with container and template layout as input parameters.
 
@@ -244,4 +272,45 @@ TraxnetPlus.showBannerAd(
             public void error(String message) {
             }
 });
+```
+### Testing AdNetworks
+To ensure the correctness work of each adNetwrok, Use from zoneId for each one. Each zoneId is related to an AdNetwork and an adType, and Test ad is displayed.
+* Note: in test mode should use test appId.
+* The application must be opened and closed once, for the correct operation of the test mode. Also, in the second request, the AdNetwork ad will be displayed.
+* For facebook testing, the hash of the device on which test is performed should be given according to the method described in sdk.
+* Run the test in release mode.
+
+Use this appId to test.
+```java
+TraxnetPlus.initialize(this, "ljenbbgksarjifdhcdocieammnlndjpsmgpqhrbjlfbsoaioenihmjapgrtgmsjtesnnci");
+```
+
+Use the below zoneId to request and display ads for each AdNetwork and any advertise. Currently, only the following adType / adNetworks are usable.
+
+|        Ad Network      |              Ad Type              |ZoneId
+|:------------:|:----------------------------:|:----------------------------:|
+|     Traxnet     |     Rewarded Video    | 5d24bd658f0dc300014a921a|
+|     Traxnet    |    Interstitial    |5d24be0f8f0dc300014a921f|
+| Traxnet |  Native  |5d24be7d8f0dc300014a9222|
+|  Traxnet | Standard |5d24bec08f0dc300014a9225|
+|    Admob    |    Rewarded Video   |5d24bd828f0dc300014a921b|
+|    Admob    |     Interstitial     |5d24be2b8f0dc300014a9220|
+|    Admob    |     Standard     |5d24bed48f0dc300014a9226|
+|    Admob    |     Native     |5d24be948f0dc300014a9223|
+|    Admob    |     Native Video     |5d24bea88f0dc300014a9224|
+|    Unity Ads    |     Rewarded Video     |5d24bdbf8f0dc300014a921d|
+|    Chartboost    |     Rewarded Video     |5d24bd9a8f0dc300014a921c|
+|    Facebook    |     Rewarded Video     |5d24bde18f0dc300014a921e|
+|    Facebook    |     Interstitial     |5d24be5d8f0dc300014a9221|
+
+
+When you use facebook, the following text is printed in logcat.
+```
+When testing your app with Facebook's ad units you must specify the device hashed ID to ensure the delivery of test ads, add the following code before loading an ad: AdSettings.addTestDevice("YOUR_DEVICE_HASH");
+```
+
+To see the Facebook test ad, give your device's hash value to the Traxnetplus library from this method.
+
+```java
+TraxnetPlus.addFacebookTestDevice("YOUR_DEVICE_HASH");
 ```
