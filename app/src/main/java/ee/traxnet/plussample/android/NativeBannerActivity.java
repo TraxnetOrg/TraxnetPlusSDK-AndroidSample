@@ -30,7 +30,7 @@ public class NativeBannerActivity extends AppCompatActivity {
         adContainer = findViewById(R.id.adContainer);
 
         adHolder = TraxnetPlus.createAdHolder(
-                this, adContainer, R.layout.traxnet_content_banner_ad_template);
+                this, adContainer, R.layout.native_banner);
 
         requestAd();
     }
