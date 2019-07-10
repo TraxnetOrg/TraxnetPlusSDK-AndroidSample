@@ -3,12 +3,12 @@
 Adding TraxnetPlus to your Android Studio Project
 ----
 
-> From version 1.1.0 to next, TraxnetPlus Supports from AdMob NativeAds, and this version is not compatible with previous version in NativeAds. If you used from NativeAds, follow the training.
+> From version 1.1.0, TraxnetPlus Supports AdMob NativeAds, and this version is not compatible with previous version in NativeAds. If you use NativeAds, follow the instructions.
 
-> From version 1.1.0 to next, the other ad-networks that you are interested in added, should be added according to the described method, and these adNetworks will not automatically be added.
+> From version 1.1.0, the other ad-networks that you are interested in adding, should be added according to the described method, and these adNetworks will not automatically be added.
 
 ### Import TraxnetPlus SDK
-First add the TraxnetPlus library to the project in the following way, then add any adNetwork that supports with TraxnetPlus and would you like, to the project According to the description. Finally, make sure the adNetwork works ok with testing methods.
+First add the TraxnetPlus library to the project in the following way, then add any adNetwork that TraxnetPlus supports and you like to add to the project According to the description. Finally, make sure the adNetwork works ok with testing methods.
 
 You can import the TraxnetPlus SDK with a Gradle dependency that points to Traxnet's Maven repository. To use this repository, you need to reference it in the project-level `build.gradle` file.
 
@@ -43,7 +43,7 @@ compileOptions {
 }
 ```
 ### Add other adNetworks
-Add these items in the build.gradle file and dependencies section. For get more information on each adNetwork, you can talk to our team at the media team.
+Add these items in the build.gradle file and dependencies section. For more information on each adNetwork, you can talk to our publisher's team.
 
 ```gradle
 dependencies {
@@ -274,7 +274,7 @@ TraxnetPlus.showBannerAd(
 });
 ```
 ### Testing AdNetworks
-To ensure the correctness work of each adNetwrok, Use from zoneId for each one. Each zoneId is related to an AdNetwork and an adType, and Test ad is displayed.
+To ensure the correctness work of each adNetwrok, Use zoneId for each one. Each zoneId is related to an AdNetwork and an adType, and Test ad is displayed.
 * Note: in test mode should use test appId.
 * The application must be opened and closed once, for the correct operation of the test mode. Also, in the second request, the AdNetwork ad will be displayed.
 * For facebook testing, the hash of the device on which test is performed should be given according to the method described in sdk.
