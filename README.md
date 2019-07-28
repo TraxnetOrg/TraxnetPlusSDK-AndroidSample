@@ -30,7 +30,7 @@ Secondly, add the following dependency to the dependencies section of your app-l
 
 ```gradle
 dependencies {
-    implementation 'ee.traxnet.plus:traxnet-plus-sdk-android:1.1.0'
+    implementation 'ee.traxnet.plus:traxnet-plus-sdk-android:1.1.1'
 }
 ```
 
@@ -50,9 +50,6 @@ dependencies {
     .......
     //for adMob
     implementation 'com.google.android.gms:play-services-ads:17.2.1'
-    implementation 'com.google.android.gms:play-services-basement:16.2.0'
-    implementation 'com.google.android.gms:play-services-ads-identifier:16.0.0'
-    implementation 'com.google.android.gms:play-services-location:16.0.0'
 
     //for unityAds
     implementation 'com.unity3d.ads:unity-ads:3.0.0'
@@ -185,18 +182,24 @@ Add an empty container in the page you want to show native banner. An example xm
 
 </FrameLayout>
 ```
-Create an template layout for showing native ad. This layout must contain components with ids given in table below:
+Create a template layout for showing native ad. This layout must contain components with ids given in table below and root view must be `com.google.android.gms.ads.formats.UnifiedNativeAdView`:
 
-|              |              id              |
-|:------------:|:----------------------------:|
-|     logo     |     traxnet_nativead_logo    |
-|     title    |    traxnet_nativead_title    |
-| ad indicator |  traxnet_nativead_sponsored  |
-|  description | traxnet_nativead_description |
-|    banner    |    traxnet_nativead_banner   |
-|    button    |     traxnet_nativead_cta     |
+|       view       |              id              | type  |
+|:------------:|:----------------------------:|:-:|
+|     logo     |     `traxnet_nativead_logo`    | `ImageView`  |
+|     title    |    `traxnet_nativead_title`    | `TextView`  |
+| ad indicator |  `traxnet_nativead_sponsored`  | `View`  |
+|  description | `traxnet_nativead_description` | `TextView`  |
+|    banner    |    `traxnet_nativead_banner`   | `ee.traxnet.sdk.nativeads.views.RatioImageView`  |
+|  media view  |`traxnet_nativead_banner_admob` | `com.google.android.gms.ads.formats.MediaView`  |
+|    button    |     `traxnet_nativead_cta`     | `TextView`  |
+|    clickable view    |     `traxnet_nativead_cta_view`     | `View`  |
 
-You can also use the sample template which is included in the SDK with the following id:
+
+* If in your design there is no button to click, you can use **clickable view**. 
+* Type of views can be inherited from the given **types**.
+* You must dedicate 2 views to show Ad images. One from `ee.traxnet.sdk.nativeads.views.RatioImageView` for Traxnet and another from `com.google.android.gms.ads.formats.MediaView` for AdMob. These 2 can exaclty overlay eachother. 
+* You can also use the sample template which is included in the SDK with the following id:
 
 `native_banner`
 
