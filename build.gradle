@@ -20,9 +20,8 @@ allprojects {
         google()
         jcenter()
 
-        maven {
-            url 'https://dl.bintray.com/traxnet/maven'
-        }
+        maven { url 'https://dl.bintray.com/traxnet/maven' }
+        maven { url  'https://adcolony.bintray.com/AdColony' }
     }
 }
 
