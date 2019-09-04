@@ -30,7 +30,7 @@ Secondly, add the following dependency to the dependencies section of your app-l
 
 ```gradle
 dependencies {
-    implementation 'ee.traxnet.plus:traxnet-plus-sdk-android:1.1.1'
+    implementation 'ee.traxnet.plus:traxnet-plus-sdk-android:1.2.0'
 }
 ```
 
@@ -59,6 +59,16 @@ dependencies {
 
     //for facebook
     implementation 'com.facebook.android:audience-network-sdk:5.3.0'
+    implementation 'com.facebook.android:facebook-android-sdk:5.2.0'
+
+    //for adcolony
+    implementation 'com.adcolony:sdk:3.3.11'
+    
+    //for applovin
+    implementation 'com.applovin:applovin-sdk:9.7.2'
+    
+    //for vungle
+    implementation 'com.vungle:publisher-sdk-android:6.4.11'
     .....
 }
 ```
@@ -276,6 +286,12 @@ TraxnetPlus.showBannerAd(
             }
 });
 ```
+
+For AppLovin Standard banner only this Ad size is exist :   
+`BANNER_320x50`  
+`BANNER_300x250`  
+`BANNER_728x90`  
+
 ### Testing AdNetworks
 To ensure the correctness work of each adNetwrok, Use zoneId for each one. Each zoneId is related to an AdNetwork and an adType, and Test ad is displayed.
 * Note: in test mode should use test appId.
@@ -305,7 +321,13 @@ Use the below zoneId to request and display ads for each AdNetwork and any adver
 |    Chartboost    |     Rewarded Video     |5d24bd9a8f0dc300014a921c|
 |    Facebook    |     Rewarded Video     |5d24bde18f0dc300014a921e|
 |    Facebook    |     Interstitial     |5d24be5d8f0dc300014a9221|
-
+|    AdColony    |     Rewarded Video     |5d6e1ce6f0fc4e0001ee275a|
+|    AdColony    |     Interstitial     |5d6e1d50f0fc4e0001ee275b|
+|    AppLovin    |     Rewarded Video     |5d6e1d6bf0fc4e0001ee275c|
+|    AppLovin    |     Interstitial     |5d6e1d92f0fc4e0001ee275d|
+|    AppLovin    |     Standard     |5d6e1ec5f0fc4e0001ee275e|
+|    Vungle    |     Rewarded Video     |5d6e1edbf0fc4e0001ee275f|
+|    Vungle    |     Interstitial     |5d6e1ef0f0fc4e0001ee2760|
 
 When you use facebook, the following text is printed in logcat.
 ```
