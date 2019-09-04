@@ -73,6 +73,14 @@ dependencies {
 }
 ```
 
+For AdColony Ad network should be add this repository to `build.gradle` file :
+
+```gradle
+maven {
+  url  "https://adcolony.bintray.com/AdColony"
+}
+```
+
 ### Proguard Configuration
 
 Get `proguard.properties` file from this link [this link](https://github.com/TraxnetOrg/TraxnetPlusSDK-AndroidSample/blob/master/app/proguard-rules.pro) and add it to proguard properties of your app module.
