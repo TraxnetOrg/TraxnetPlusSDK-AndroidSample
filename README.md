@@ -30,7 +30,7 @@ Secondly, add the following dependency to the dependencies section of your app-l
 
 ```gradle
 dependencies {
-    implementation 'ee.traxnet.plus:traxnet-plus-sdk-android:1.2.0'
+    implementation 'ee.traxnet.plus:traxnet-plus-sdk-android:1.2.1'
 }
 ```
 
